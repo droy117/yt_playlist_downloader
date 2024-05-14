@@ -21,6 +21,7 @@ def playlistDownload():
         playlist = Playlist(playlist_url)
         for video in playlist.videos:
             title = video.title
+            print(title)
             finishLabel.configure(text=f'Downloding {title}')
             video.streams.filter(subtype='mp4', res="720p").first().download()
             os.rename(video, vname)
@@ -39,6 +40,7 @@ def playlistDownload():
             finishLabel.configure(text="Download Complete!")
     except:
         finishLabel.configure(text="Whoops Error! Make sure the link is correct.")
+    print("I am done")
 
 
 def singleDownload():
